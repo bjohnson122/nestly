@@ -1,10 +1,11 @@
 import React from "react";
+import "../styles/Register.scss";
 
 const RegisterPage = () => {
   return (
     <div className="register">
       <div className="register_content">
-        <form>
+        <form className="register_content_form">
           <input
             placeholder="First Name"
             name="firstName"
