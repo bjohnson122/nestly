@@ -17,7 +17,7 @@
     gap: 15px;
     width: 40%;
     padding: 40px;
-    background-color: rgba(48, 29, 8, 0.9);
+    background-color: rgba(48, 29, 8, .9);
     border-radius: 20px;
 
     @include lg {
@@ -71,6 +71,7 @@
 
       button {
         margin-top: 15px;
+        box-shadow: 2px 6px 7px rgba(0, 0, 0, .7);
 
         @include buttonStyle;
         width: 50%;
