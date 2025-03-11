@@ -83,7 +83,10 @@ router.post("/login", async (req, res) => {
     /* Compare the password with the hashed password:
        user comes from line 61 --> where the new User constructor 
        password is set to the hashed password */
-    const matchingPassword = await bcrypt.compare(password, user.password);
+    const matchingPassword = await bcrypt.compare(
+      password,
+      existingUser.password
+    );
     /* ↑ bcrypt.compare() rehashes the plain text password using the same 
     hashing algorithm and salt that was used for user.password.*/
     if (!matchingPassword) {
@@ -91,10 +94,10 @@ router.post("/login", async (req, res) => {
     }
 
     /* Generate JWT token */
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    delete user.password;
+    const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET);
+    delete existingUser.password;
 
-    res.status(200).json({ token, user, message:"Success!" });
+    res.status(200).json({ token, existingUser, message: "Success!" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: `Server error: ${err}` });
