@@ -1,8 +1,25 @@
 import React, { useState } from "react";
-import '../styles/Login.scss'
+import "../styles/Login.scss";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch ("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      })
+
+      /* GET data after fetching */
+    } catch (err) {
+      console.error(err);
+  };
+  }
   return (
     <div className="login">
       <div className="login_content">
