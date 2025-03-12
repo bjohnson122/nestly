@@ -115,7 +115,6 @@ const RegisterPage = () => {
             <img src="/assets/addImage.png" alt="Add a profile photo" />
             <p>Upload Your Profile Photo</p>
           </label>
-            <p>Upload Your Profile Photo</p>
 
           {formData.profileImage && (
             // eslint-disable-next-line jsx-a11y/img-redundant-alt
