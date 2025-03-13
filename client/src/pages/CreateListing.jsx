@@ -3,13 +3,14 @@ import { categories, types, facilities } from "../data";
 
 import { RemoveCircleOutline, AddCircleOutline } from "@mui/icons-material";
 import variables from "../styles/variables.scss";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+// import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { IoIosImages } from "react-icons/io";
 import { useState } from "react";
 import { BiTrash } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
 const CreateListing = () => {
   const [category, setCategory] = useState("");
@@ -141,8 +142,7 @@ const CreateListing = () => {
   };
   return (
     <>
-      <Navbar />
-
+      <Layout>
       <div className="create-listing">
         <h1>Publish Your Place</h1>
         <form onSubmit={handlePost}>
@@ -380,8 +380,8 @@ const CreateListing = () => {
             </div>
 
             <h3>Add some photos of your place</h3>
-            <DragDropContext onDragEnd={handleDragPhoto}>
-              <Droppable droppableId="photos" direction="horizontal">
+            {/* <DragDropContext onDragEnd={handleDragPhoto}>
+              <Droppable droppableId="photos" direction="horizontal"> */}
                 {(provided) => (
                   <div
                     className="photos"
@@ -407,7 +407,7 @@ const CreateListing = () => {
                       </>
                     )}
 
-                    {photos.length >= 1 && (
+                    {/* {photos.length >= 1 && (
                       <>
                         {photos.map((photo, index) => {
                           return (
@@ -453,11 +453,11 @@ const CreateListing = () => {
                           <p>Upload from your device</p>
                         </label>
                       </>
-                    )}
+                    )} */}
                   </div>
                 )}
-              </Droppable>
-            </DragDropContext>
+              {/* </Droppable>
+            </DragDropContext> */}
 
             <h3>What make your place attractive and exciting?</h3>
             <div className="description">
@@ -516,8 +516,7 @@ const CreateListing = () => {
           </button>
         </form>
       </div>
-
-      <Footer />
+    </Layout>
     </>
   );
 };
